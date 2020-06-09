@@ -1,0 +1,40 @@
+-- Things to Keep in Mind / Tips --
+
+To use the console, type “rake console”
+
+When calling int_input, make sure to start your string with a newline character by typing “int_input(“\nmessage”, [lower_limit, upper_limit]). This keeps things from getting too cluttered.
+
+To reset data after testing stuff out, type “rake db:seed”. This will set the data to whatever is in the seeds file.
+
+
+
+
+
+-- To Fix/Bugs --
+
+Right now, if an appointment is canceled in the upcoming appointments menu, sometimes the wrong appointment gets canceled, and every time all other appointments have their id incremented by 1.
+
+
+
+
+-- To-Do / To Implement --
+
+
+Methods or method changes to implement:
+
+in student.create_appointment method, it should check it time slot is already taken (make they start and end on the hour - should be easily achieved by using int_input)
+
+in student.create_appointment method, it should check if entered date time is valid (for example, no appointment on February 20th) - if it’s invalid, instead of breaking the application with an error, it should just puts “invalid date” and restart the process of making an appointment
+
+When canceling an appointment, if a student enters an id of an appointment that does not belong to them, or an id of an appointment that  doesn’t exist, it shouldn’t break the application
+
+
+
+Implement any additional base methods in classes (preferably keep methods in the Student class as this is the user - unless it makes sense to put a method in another class)
+
+Implement all methods in menus
+
+Make the app prettier (top priority: clear screens, new lines where necessary, lower priority: logos, colors, tables, etc)
+
+
+
