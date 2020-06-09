@@ -13,7 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_06_09_144351) do
 
   create_table "appointments", force: :cascade do |t|
-    t.datetime "datetime"
+    t.datetime "begin_datetime"
+    t.datetime "end_datetime"
     t.string "note"
     t.integer "student_id"
     t.integer "tutor_id"
