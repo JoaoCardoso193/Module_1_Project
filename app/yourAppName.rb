@@ -11,34 +11,35 @@ class App
 
   private
 
-  # def int_input(limits = [])
-  #   begin
-  #     user_input = gets.chomp.to_i
-  #   rescue
-  #     puts 'must be an integer value'
-  #     user_input = gets.chomp.to_i
-  #   end
+  #method to get user input as an integer corresponding to an option
+  #parameter 's' is the string printed to request user input, parameter 'limits' is the range of integers allowed as input
+  def int_input(s = "\nPlease select an option", limits = [1, 100])
+    puts s
+    user_input = gets.chomp
+    #if user types 'exit', exit the application
+    if user_input.downcase == "exit"
+      exit()
+    end
 
-  # end
+    #if user input is within allowed range, return it, otherwise, ask for it again
+    if user_input.to_i >= limits[0] and user_input.to_i <= limits[1]
+        return user_input.to_i
+    else
+        puts("Invalid input, please enter an integer value coresponding to an option, or type 'exit' to exit application.")
+        sleep(2)
+        return int_input(s, limits)
+    end
+  end
 
-  # def int_input(limits = []):
-  #   user_input = gets.chomp
-  #   if user_input == "exit" or user_input == 'Exit':
-  #     exit()
-  #   end
 
-  #   begin
-  #     if limits != []
-  #       if int(user_input) >= limits[0] and int(user_input) <= limits[1]
-  #         return int(user_input)
-  #       else
-  #         print("Value outside limits!")
-  #               return int_input(limits)
-  #       else:
-  #           return int(user_input)
-  #   except:
-  #       print("Must be an integer value!")
-  #       return int_input(s)
+
+  #method to enumerate out options in a menu
+  def enumerate_options(options)
+    puts "\n"
+    options.each_with_index do |option, index|
+      puts "[#{index+1}] #{option}"
+    end
+  end
 
   #prints welcome message
   def welcome
@@ -48,10 +49,12 @@ class App
     system 'clear'
   end
 
+
+  #login method
   def login_or_signup
     #login prompt, gets user input
     puts "Please enter your username to sign up or log in"
-    name = gets.chomp.downcase
+    name = gets.chomp.capitalize
 
     #checking if student already exists, if not, ask for age and create a new student instance
     student_names = Student.all.map{|student| student.name}
@@ -65,24 +68,18 @@ class App
     end
 
     #sleep briefly
-    sleep(0.3)
+    sleep(1)
 
     #Welcome student
-    puts "Welcome #{@student.name}"
+    puts "\nWelcome #{@student.name}!"
   end
 
 
 
   def main_menu
     #presents options to student 
-    options = ['Make appointment', 'View appointments']
-
-    options.each_with_index do |option, index|
-      puts "[#{index+1}] #{option}"
-    end
-
-    puts 'testing input'
-    int_input
+    enumerate_options(['Make appointment', 'View appointments'])
+    int_input(s = "\nPlease select an option.", limits = [1, 2])
   end
 
 
