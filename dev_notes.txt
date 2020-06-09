@@ -22,9 +22,9 @@ Right now, if an appointment is canceled in the upcoming appointments menu, some
 
 Methods or method changes to implement:
 
-in student.create_appointment method, it should check it time slot is already taken (make they start and end on the hour - should be easily achieved by using int_input)
+in student.create_appointment method, it should check if time slot is already taken (right now all time slots begin and end on the hour, so when creating a new appointment with a tutor, we have to check each timeslot of each appointment for that tutor and check that in each appointment start_time != new_appointment_start_time)
 
-in student.create_appointment method, it should check if entered date time is valid (for example, no appointment on February 20th) - if it’s invalid, instead of breaking the application with an error, it should just puts “invalid date” and restart the process of making an appointment
+in student.create_appointment method, it should check if entered date time is valid (for example, no appointment on February 30th) - if it’s invalid, instead of breaking the application with an error, it should just puts “invalid date” and restart the process of making an appointment
 
 When canceling an appointment, if a student enters an id of an appointment that does not belong to them, or an id of an appointment that  doesn’t exist, it shouldn’t break the application
 
