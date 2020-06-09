@@ -41,6 +41,8 @@ class App
     end
   end
 
+
+
   #prints welcome message
   def welcome
     "Hello! Welcome to our app"
@@ -77,11 +79,82 @@ class App
 
 
   def main_menu
+    system 'clear'
+
     #presents options to student 
-    enumerate_options(['Make appointment', 'View appointments'])
-    int_input(s = "\nPlease select an option.", limits = [1, 2])
+    enumerate_options(['Make an appointment', 'View upcoming appointments'])
+    user_input = int_input(s = "\nPlease select an option.", limits = [1, 2])
+    
+    #Taking user to secondary menu depending on input
+    if user_input == 1
+      create_appointment_menu
+    end
+    if user_input == 2
+      view_upcoming_appointments_menu
+    end
+    
   end
 
+  def create_appointment_menu
+    system 'clear'
 
+    #Show all tutors
+    puts "Available tutors:"
+    tutors = Tutor.all.map { |tutor| "Name: #{tutor.name}, Subject: #{tutor.subject}, Years of experience: #{tutor.years_of_experience}"}
+    enumerate_options(tutors)
+
+    #requesting and storing user input
+    tutor = Tutor.find_by(id: int_input(s = "\nPlease select a tutor.", limits = [1, tutors.size]))
+
+    #requesting appointment month
+    months = {1 => "January", 2 => "February", 3 => "March", 4 => "April", 5 => "May", 6 => "June", 7 => "July", 8 => "August", 9 => "September", 10 => "October", 11 => "November", 12 => "December"}
+    enumerate_options(months.values)
+    month = int_input(s = "\nPlease select a month", limits = [1, 12])
+
+    #requesting appointment day
+    day = int_input(s = "\nPlease input a day", limits = [1, 31])
+
+    #requesting an hour
+    hour = int_input(s = "\nPlease input an hour (24hr format)", limits = [1, 24])
+
+    #requesting note
+    puts "\nPlease leave a note"
+    note = gets.chomp
+
+    #creating appointment
+    @student.create_appointment(tutor, 2020, month, day, hour, note)
+    puts "\nAppointment created successfully on #{months[month]}, #{day} at #{hour} o'clock!"
+
+    #returning home
+    enumerate_options(['Home'])
+    user_input = int_input(s = "\nPlease select an option.", limits = [1, 1])
+    if user_input = 1
+      main_menu
+    end
+  end
+
+  def view_upcoming_appointments_menu
+    system 'clear'
+    #save appointments as pretty strings and enumerate them
+    appointments = @student.upcoming_appointments
+    appointment_strings = appointments.map {|appointment| "Tutor: #{appointment.tutor.name}, Appointmend id: #{appointment.id}, Start Time: #{appointment.begin_datetime}, End Time: #{appointment.end_datetime}, Note: #{appointment.note}"}
+    enumerate_options(appointment_strings)
+
+    #present user options
+    enumerate_options(['Cancel an appointment', 'Home'])
+    user_input = int_input(s = "\nPlease select an option.", limits = [1, 2])
+
+    if user_input == 1
+      id_to_cancel = int_input(s = "\nPlease enter the id of the appointment you'd like to cancel.", limits = [1, 1000])
+      @student.cancel_appointment(id_to_cancel)
+      puts "Appointment canceled successfully!"
+      view_upcoming_appointments_menu
+    end
+
+    if user_input == 2
+      main_menu
+    end
+
+    end
 
 end
