@@ -3,6 +3,9 @@
 Student.destroy_all
 Appointment.destroy_all
 Tutor.destroy_all
+Student.reset_pk_sequence
+Appointment.reset_pk_sequence
+Tutor.reset_pk_sequence
 Student.create(name: "Thomas", age: 15)
 Student.create(name: "Eric", age: 18)
 Student.create(name: "Sally", age: 18)
