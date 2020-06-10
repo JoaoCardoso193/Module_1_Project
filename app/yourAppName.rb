@@ -1,4 +1,4 @@
-class App
+class App < TTY::Prompt
   attr_reader :student
   # here will be your CLI!
   # it is not an AR class so you need to add attr
@@ -68,10 +68,26 @@ class App
 
     if student_names.include?(name)
       @student = Student.find_by(name: name)
+      # puts "Please enter password"
+      # sleep(0.3)
+      # password = gets.chomp
+     password = mask("Please Enter Your Password") 
+      # if password == "exit"
+      #   exit 
+      # end
+      if @student.password != password
+        puts "Incorrect password, please try again"
+        sleep(0.3)
+        login_or_signup
+      end 
     else
       print "Please enter your age"
       age = int_input(s = "", limits = [1, 150])
-      @student = Student.create(name: name, age: age)
+      # puts "Please enter a password"
+      # sleep(0.3)
+      # password = gets.chomp 
+      password = mask("Please Enter Your Password") 
+      @student = Student.create(name: name, age: age, password: password)
     end
 
     #sleep briefly
