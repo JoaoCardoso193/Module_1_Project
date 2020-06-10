@@ -19,15 +19,10 @@ To reset data after testing stuff out, type “rake db:seed”. This will set th
 
 Methods or method changes to implement:
 
-1. Ability to change note in view appointment screen (THIS IS CRUCIAL AS ABILITY TO UPDATE DATABASE IS ONE OF THE PROJECT CRITERIA)
+1. Add clear statements and new line statements to declutter user experience
 
 2. Implement Password at login
 
-3. Implement any additional base methods in classes (preferably keep methods in the Student class as this is the user - unless it makes sense to put a method in another class)
-
-4. Implement all methods in menus
-
-5. Make the app prettier (top priority: clear screens, new lines where necessary, lower priority: logos, colors, tables, etc)
-
+3. Implement any new methods that might be wanted & make the app pretier (logos, colors, maybe even tables)
 
 

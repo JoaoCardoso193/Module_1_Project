@@ -177,18 +177,30 @@ class App
     enumerate_options(appointment_strings)
 
     #present user options
-    enumerate_options(['Cancel an appointment', 'Home'])
-    user_input = int_input(s = "\nPlease select an option.", limits = [1, 2])
+    enumerate_options(['Cancel an appointment', 'Change appointment note', 'Home'])
+    user_input = int_input(s = "\nPlease select an option.", limits = [1, 3])
 
     if user_input == 1
       i = int_input(s = "\nPlease enter the number of the appointment you'd like to cancel.", limits = [1, appointments.size])
       @student.cancel_appointment(appointments[i-1].id)
       puts "Appointment cancelled successfully!"
-      sleep(2)
+      sleep(1)
       view_upcoming_appointments_menu
     end
 
     if user_input == 2
+      i = int_input(s = "\nPlease enter the number of the appointment you'd like to change.", limits = [1, appointments.size])
+      appointment = appointments[i-1]
+      puts "\nPlease enter the new appointment note"
+      new_note = gets.chomp
+      appointment.note = new_note
+      appointment.save
+      puts "Appointment note changed successfully!"
+      sleep(1)
+      view_upcoming_appointments_menu
+    end
+
+    if user_input == 3
       main_menu
     end
 
