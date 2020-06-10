@@ -137,7 +137,7 @@ class App
     system 'clear'
     #save appointments as pretty strings and enumerate them
     appointments = @student.upcoming_appointments
-    appointment_strings = appointments.map {|appointment| "Tutor: #{appointment.tutor.name}, Appointmend id: #{appointment.id}, Start Time: #{appointment.begin_datetime}, End Time: #{appointment.end_datetime}, Note: #{appointment.note}"}
+    appointment_strings = appointments.map {|appointment| "Tutor: #{appointment.tutor.name}, Appointment id: #{appointment.id}, Start Time: #{appointment.begin_datetime}, End Time: #{appointment.end_datetime}, Note: #{appointment.note}"}
     enumerate_options(appointment_strings)
 
     #present user options
@@ -147,7 +147,8 @@ class App
     if user_input == 1
       id_to_cancel = int_input(s = "\nPlease enter the id of the appointment you'd like to cancel.", limits = [1, 1000])
       @student.cancel_appointment(id_to_cancel)
-      puts "Appointment canceled successfully!"
+      puts "Appointment cancelled successfully!"
+      sleep(2)
       view_upcoming_appointments_menu
     end
 
