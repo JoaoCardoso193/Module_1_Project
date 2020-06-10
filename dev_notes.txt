@@ -12,13 +12,13 @@ To reset data after testing stuff out, type “rake db:seed”. This will set th
 
 -- To Fix/Bugs --
 
-Right now, if an appointment is canceled in the upcoming appointments menu, sometimes the wrong appointment gets canceled, and every time all other appointments have their id incremented by 1.
-
-Being able to see and delete appointments that don't belong to you has to be fixed.
+Get rid of weekends in appointment slots!
 
 When no appointments to cancel, it should say that, and return to home.
 
-Exit from the login screen earlier 
+Add ability to exit from the login screen earlier 
+
+
 
 
 -- To-Do / To Implement --
@@ -26,19 +26,17 @@ Exit from the login screen earlier
 
 Methods or method changes to implement:
 
-in student.create_appointment method, it should check if time slot is already taken (right now all time slots begin and end on the hour, so when creating a new appointment with a tutor, we have to check each timeslot of each appointment for that tutor and check that in each appointment start_time != new_appointment_start_time)
+1. Ability to change note in create appointment screen (THIS IS CRUCIAL AS ABILITY TO UPDATE DATABASE IS ONE OF THE PROJECT CRITERIA)
 
-in student.create_appointment method, it should check if entered date time is valid (for example, no appointment on February 30th) - if it’s invalid, instead of breaking the application with an error, it should just puts “invalid date” and restart the process of making an appointment
+2. List tutor time slots in create appointment menu
 
-When canceling an appointment, if a student enters an id of an appointment that does not belong to them, or an id of an appointment that  doesn’t exist, it shouldn’t break the application
+3. Implement Password at login
 
+4. Implement any additional base methods in classes (preferably keep methods in the Student class as this is the user - unless it makes sense to put a method in another class)
 
+5. Implement all methods in menus
 
-Implement any additional base methods in classes (preferably keep methods in the Student class as this is the user - unless it makes sense to put a method in another class)
-
-Implement all methods in menus
-
-Make the app prettier (top priority: clear screens, new lines where necessary, lower priority: logos, colors, tables, etc)
+6. Make the app prettier (top priority: clear screens, new lines where necessary, lower priority: logos, colors, tables, etc)
 
 
 
