@@ -115,7 +115,12 @@ class App
     day = int_input(s = "\nPlease input a day", limits = [1, 31])
 
     #requesting an hour
-    hour = int_input(s = "\nPlease input an hour (24hr format)", limits = [1, 24])
+    good_appts = tutor.appointments.select{|appt| appt.taken == false && appt.begin_datetime.mday == day && appt.begin_datetime.mon == month}
+    display_hours = good_appts.map{|hora| "Start Time: #{hora.begin_datetime.hour}"}
+    enumerate_options(display_hours)
+    index = int_input(s = "\nPlease select an option", limits = [1, good_appts.size])
+    hour = good_appts[index - 1].begin_datetime.hour 
+    
 
     #requesting note
     puts "\nPlease leave a note"
