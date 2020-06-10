@@ -128,7 +128,7 @@ class App
     #returning home
     enumerate_options(['Home'])
     user_input = int_input(s = "\nPlease select an option.", limits = [1, 1])
-    if user_input = 1
+    if user_input == 1
       main_menu
     end
   end

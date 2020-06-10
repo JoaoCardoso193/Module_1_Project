@@ -38,3 +38,4 @@ Make the app prettier (top priority: clear screens, new lines where necessary, l
 
 
 
+Being able to see and delete appointments that don't belong to you has to be fixed.
