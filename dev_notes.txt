@@ -6,21 +6,44 @@ When calling int_input, make sure to start your string with a newline character 
 
 To reset data after testing stuff out, type “rake db:seed”. This will set the data to whatever is in the seeds file.
 
+Available colorize colors:
+black
+light_black
+red
+light_red
+green
+light_green
+yellow
+light_yellow
+blue
+light_blue
+magenta
+light_magenta
+cyan
+light_cyan
+white
+light_white
+default
+
+Available colorize modes:
+default
+bold
+italic
+underline
+blink
+swap
+hide
+
 
 
 
 
 -- To Fix/Bugs --
 
-
+None :)
 
 -- To-Do / To Implement --
 
-
-Methods or method changes to implement:
-
-1. Add clear statements and new line statements to declutter user experience
-
-2. Implement any new methods that might be wanted & make the app pretier (logos, colors, maybe even tables)
+1. Implement any new methods that might be wanted & make the app pretier (logos, colors, maybe even tables)
 
 
