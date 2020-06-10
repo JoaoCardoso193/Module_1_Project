@@ -15,14 +15,14 @@ class Student < ActiveRecord::Base
 
     #cancels an appointment given its id
     def cancel_appointment(appointment_id)
-        appointment = appointments.find {|appointment| appointment.id = appointment_id}
+        appointment = appointments.find {|appointment| appointment.id == appointment_id}
         appointment.destroy
         appointment.save
     end
 
     #returns all appointments for student instance
     def appointments
-        Appointment.all.select{|appointment| appointment.student_id = self.id}
+        Appointment.all.select{|appointment| appointment.student_id == self.id}
     end
 
     #returns upcoming appointment for student instance
