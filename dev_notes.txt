@@ -44,6 +44,8 @@ None :)
 
 -- To-Do / To Implement --
 
-1. Implement any new methods that might be wanted & make the app pretier (logos, colors, maybe even tables)
+1. Simplify seed file repetition in loops by creating a method
+
+2. Implement any new methods that might be wanted & make the app pretier (logos, colors, maybe even tables)
 
 
