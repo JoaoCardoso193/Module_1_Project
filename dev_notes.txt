@@ -18,6 +18,8 @@ Being able to see and delete appointments that don't belong to you has to be fix
 
 When no appointments to cancel, it should say that, and return to home.
 
+Exit from the login screen earlier 
+
 
 -- To-Do / To Implement --
 

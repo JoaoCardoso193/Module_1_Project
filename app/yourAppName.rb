@@ -145,8 +145,8 @@ class App
     user_input = int_input(s = "\nPlease select an option.", limits = [1, 2])
 
     if user_input == 1
-      id_to_cancel = int_input(s = "\nPlease enter the id of the appointment you'd like to cancel.", limits = [1, 1000])
-      @student.cancel_appointment(id_to_cancel)
+      i = int_input(s = "\nPlease enter the number of the appointment you'd like to cancel.", limits = [1, appointments.size])
+      @student.cancel_appointment(appointments[i-1].id)
       puts "Appointment cancelled successfully!"
       sleep(2)
       view_upcoming_appointments_menu
