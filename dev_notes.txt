@@ -19,18 +19,24 @@ When no appointments to cancel, it should say that, and return to home.
 Add ability to exit from the login screen earlier 
 
 
+
+
 -- To-Do / To Implement --
 
 
 Methods or method changes to implement:
 
-List tutor time slots in create appointment menu
+1. Ability to change note in create appointment screen (THIS IS CRUCIAL AS ABILITY TO UPDATE DATABASE IS ONE OF THE PROJECT CRITERIA)
 
-Implement any additional base methods in classes (preferably keep methods in the Student class as this is the user - unless it makes sense to put a method in another class)
+2. List tutor time slots in create appointment menu
 
-Implement all methods in menus
+3. Implement Password at login
 
-Make the app prettier (top priority: clear screens, new lines where necessary, lower priority: logos, colors, tables, etc)
+4. Implement any additional base methods in classes (preferably keep methods in the Student class as this is the user - unless it makes sense to put a method in another class)
+
+5. Implement all methods in menus
+
+6. Make the app prettier (top priority: clear screens, new lines where necessary, lower priority: logos, colors, tables, etc)
 
 
 
