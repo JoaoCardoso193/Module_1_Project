@@ -12,13 +12,6 @@ To reset data after testing stuff out, type “rake db:seed”. This will set th
 
 -- To Fix/Bugs --
 
-Get rid of weekends in appointment slots!
-
-When no appointments to cancel, it should say that, and return to home.
-
-Add ability to exit from the login screen earlier 
-
-
 
 
 -- To-Do / To Implement --
@@ -26,17 +19,15 @@ Add ability to exit from the login screen earlier
 
 Methods or method changes to implement:
 
-1. Ability to change note in create appointment screen (THIS IS CRUCIAL AS ABILITY TO UPDATE DATABASE IS ONE OF THE PROJECT CRITERIA)
+1. Ability to change note in view appointment screen (THIS IS CRUCIAL AS ABILITY TO UPDATE DATABASE IS ONE OF THE PROJECT CRITERIA)
 
-2. List tutor time slots in create appointment menu
+2. Implement Password at login
 
-3. Implement Password at login
+3. Implement any additional base methods in classes (preferably keep methods in the Student class as this is the user - unless it makes sense to put a method in another class)
 
-4. Implement any additional base methods in classes (preferably keep methods in the Student class as this is the user - unless it makes sense to put a method in another class)
+4. Implement all methods in menus
 
-5. Implement all methods in menus
-
-6. Make the app prettier (top priority: clear screens, new lines where necessary, lower priority: logos, colors, tables, etc)
+5. Make the app prettier (top priority: clear screens, new lines where necessary, lower priority: logos, colors, tables, etc)
 
 
 

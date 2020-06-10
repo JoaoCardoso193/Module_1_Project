@@ -7,39 +7,46 @@ Student.reset_pk_sequence
 Appointment.reset_pk_sequence
 Tutor.reset_pk_sequence
 
+#Vidhi, available every weekday 9-17
 vidhi = Tutor.create(name: "Vidhi", subject: "CS", years_of_experience: 10)
-s99 = Student.create(name: "tester", age: 18)
-
-#Vidhi, every weekday 9-5
 vidhi_times = (9..17)
 
-#creating June times
-for month in (6..12)
-    if month == 6 or month == 9 or month == 11
+#creating appointments
+for month in (1..12)
+    if month == 4 or month == 6 or month == 9 or month == 11
         for day in (1..30)
             for hour in vidhi_times
-                datetime = DateTime.new(2020, month, day, hour)
+                datetime = DateTime.new(DateTime.now.year, month, day, hour)
+                appointment = Appointment.create(begin_datetime: datetime, tutor: vidhi)
+            end
+        end
+    elsif month == 2
+        for day in (1..28)
+            for hour in vidhi_times
+                datetime = DateTime.new(DateTime.now.year, month, day, hour)
                 appointment = Appointment.create(begin_datetime: datetime, tutor: vidhi)
             end
         end
     else
         for day in (1..31)
             for hour in vidhi_times
-                datetime = DateTime.new(2020, month, day, hour)
+                datetime = DateTime.new(DateTime.now.year, month, day, hour)
                 appointment = Appointment.create(begin_datetime: datetime, tutor: vidhi)
             end
         end
     end
 end
 
+#Getting rid of weekend appointments (they need to rest)
+for appointment in Appointment.all
+    if appointment.begin_datetime.wday == 6 || appointment.begin_datetime.wday == 0 #deleting Saturdays and Sundays
+        appointment.destroy
+    end
+end
 
-# for hour in vidhi_times
-#     for day in (1..31)
-#         datetime = DateTime.new(2020, 6, day, hour)
-#         appointment = Appointment.create(begin_datetime: datetime, tutor: vidhi)
-#         appointment.end_datetime = appointment.begin_datetime + 1.hours
-#     end
-# end
+
+# s99 = Student.create(name: "tester", age: 18)
+
 
 
 

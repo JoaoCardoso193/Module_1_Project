@@ -57,6 +57,11 @@ class App
     #login prompt, gets user input
     puts "Please enter your username to sign up or log in"
     name = gets.chomp.capitalize
+    
+    #checking for 'exit'
+    if name.downcase == "exit"
+      exit
+    end
 
     #checking if student already exists, if not, ask for age and create a new student instance
     student_names = Student.all.map{|student| student.name}
@@ -64,8 +69,8 @@ class App
     if student_names.include?(name)
       @student = Student.find_by(name: name)
     else
-      puts "Please enter your age"
-      age = gets.chomp.downcase
+      print "Please enter your age"
+      age = int_input(s = "", limits = [1, 150])
       @student = Student.create(name: name, age: age)
     end
 
@@ -74,6 +79,7 @@ class App
 
     #Welcome student
     puts "\nWelcome #{@student.name}!"
+    sleep(1)
   end
 
 
@@ -148,6 +154,25 @@ class App
     system 'clear'
     #save appointments as pretty strings and enumerate them
     appointments = @student.upcoming_appointments
+
+    #return to main menu if there are no upcoming appointments
+    if appointments.size == 0
+      puts 'You have no upcoming appointments'
+      sleep(1)
+      enumerate_options(['Make an appointment', 'Home'])
+      user_input = int_input(s = "\nPlease select an option.", limits = [1, 2])
+
+      if user_input == 1
+        create_appointment_menu
+      end
+
+      if user_input == 2
+        main_menu
+      end
+      
+
+    end
+
     appointment_strings = appointments.map {|appointment| "Tutor: #{appointment.tutor.name}, Appointment id: #{appointment.id}, Start Time: #{appointment.begin_datetime}, End Time: #{appointment.end_datetime}, Note: #{appointment.note}"}
     enumerate_options(appointment_strings)
 
