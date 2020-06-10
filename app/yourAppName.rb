@@ -122,13 +122,19 @@ class App
     note = gets.chomp
 
     #creating appointment
-    @student.create_appointment(tutor, 2020, month, day, hour, note)
-    puts "\nAppointment created successfully on #{months[month]}, #{day} at #{hour} o'clock!"
+    is_new = 
+    appointment = @student.create_appointment(tutor, 2020, month, day, hour, note)
+    if appointment != 'failed'
+      puts "\nAppointment created successfully on #{months[month]}, #{day} at #{hour} o'clock!"
+    end
 
     #returning home
-    enumerate_options(['Home'])
-    user_input = int_input(s = "\nPlease select an option.", limits = [1, 1])
+    enumerate_options(['Create Another Appointment', 'Home'])
+    user_input = int_input(s = "\nPlease select an option.", limits = [1, 2])
     if user_input == 1
+      create_appointment_menu
+    end
+    if user_input == 2
       main_menu
     end
   end
