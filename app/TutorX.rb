@@ -142,10 +142,18 @@ class App < TTY::Prompt
     #requesting an hour
     good_appts = tutor.appointments.select{|appt| appt.taken == false && appt.begin_datetime.day == day && appt.begin_datetime.mon == month}
     if good_appts.size == 0 #considering the case when there are no appointments left
-      system 'clear'
-      puts 'No appointments available with this tutor on this day!'.red.bold
-      sleep (1.5)
-      create_appointment_menu
+      current_day = DateTime.new(DateTime.now.year, month, day)
+      if current_day.wday == 6 || current_day.wday == 0
+        system 'clear'
+        puts "Tutors don't work on weekends!".red.bold
+        sleep (1.5)
+        create_appointment_menu
+      else
+        system 'clear'
+        puts 'No appointments available with this tutor on this day!'.red.bold
+        sleep (1.5)
+        create_appointment_menu
+      end 
     end
     display_hours = good_appts.map{|appt| "Start time: #{appt.begin_datetime.hour}.00 o'clock"}
     enumerate_options(display_hours)
