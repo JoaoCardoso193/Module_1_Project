@@ -140,14 +140,14 @@ class App < TTY::Prompt
     day = int_input(s = "\nPlease input a day:".yellow.bold, limits = [1, 31])
 
     #requesting an hour
-    good_appts = tutor.appointments.select{|appt| appt.taken == false && appt.begin_datetime.mday == day && appt.begin_datetime.mon == month}
+    good_appts = tutor.appointments.select{|appt| appt.taken == false && appt.begin_datetime.day == day && appt.begin_datetime.mon == month}
     if good_appts.size == 0 #considering the case when there are no appointments left
       system 'clear'
       puts 'No appointments available with this tutor on this day!'.red.bold
       sleep (1.5)
       create_appointment_menu
     end
-    display_hours = good_appts.map{|hora| "Start time: #{hora.begin_datetime.hour}.00 o'clock"}
+    display_hours = good_appts.map{|appt| "Start time: #{appt.begin_datetime.hour}.00 o'clock"}
     enumerate_options(display_hours)
     index = int_input(s = "\nPlease select an option:".yellow.bold, limits = [1, good_appts.size])
     hour = good_appts[index - 1].begin_datetime.hour 
@@ -158,7 +158,7 @@ class App < TTY::Prompt
     system 'clear'
 
     #creating appointment
-    appointment = @student.create_appointment(tutor, 2020, month, day, hour, note)
+    appointment = @student.create_appointment(tutor, DateTime.now.year, month, day, hour, note)
     if appointment != 'failed'
       puts "\nAppointment created successfully on #{months[month]}, #{day} at #{hour} o'clock!".green.bold 
       sleep(1.5)
