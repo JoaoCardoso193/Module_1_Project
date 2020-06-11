@@ -95,8 +95,10 @@ class App < TTY::Prompt
     #sleep briefly
     sleep(1.5)
 
-    #Welcome student
+    #Welcome student and print main logo
     system 'clear'
+    MainLogo.animate
+    sleep(0.5)
     puts "\nWelcome #{@student.name}!".blue.bold 
     sleep(1.5)
   end
@@ -105,6 +107,8 @@ class App < TTY::Prompt
 
   def main_menu
     system 'clear'
+
+    TextLogo.display
 
     #presents options to student 
     enumerate_options(['Make an appointment', 'View upcoming appointments'])
