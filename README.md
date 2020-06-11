@@ -15,7 +15,7 @@ This app is for students to view and schedule appointments with tutors.
     - [Bootstrap](#bootstrap)
 - [Contributing](#contributing)
     - [Known Issues](#known-issues)
-- [License](#license)
+- [License X](#license)
 
 ## test
 For development, you will only need [Node.js](http://nodejs.org/) installed on your environement. 
@@ -86,5 +86,5 @@ Visit [issues](https://github.com/sruti/covid19-riskfactors-app/issues) section.
 </table>
 
 
-## License
+## License X
 [MIT](https://choosealicense.com/licenses/mit/)
