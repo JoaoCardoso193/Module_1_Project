@@ -17,7 +17,7 @@ class Student < ActiveRecord::Base
             appointment.save
             appointment
         else
-            puts '\n Appointment taken, please select another time slot'
+            puts "\nAppointment taken, please select another time slot".red.bold
             return 'failed'
         end
     end

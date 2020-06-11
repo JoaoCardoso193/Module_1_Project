@@ -48,7 +48,6 @@ Add: If one tries to book an appointment on the weekend or outside the available
 Add: Maybe we should lose the possibility to book in Jan-Jun12th, leaving only future dates until the end of the year? 
 Should also probably specify that it's 2020 we're referring to.
 
-Add: "Start time" for appointment should be listed a little neater.
 
 Bug: If I book an appointment, then cancel it, it seems that the option is then duplicated in available choices
 Bug: Once appointment is booked, it's not removed from available options for

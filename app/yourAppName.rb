@@ -147,7 +147,7 @@ class App < TTY::Prompt
       sleep (1.5)
       create_appointment_menu
     end
-    display_hours = good_appts.map{|hora| "Start time: #{hora.begin_datetime.hour}"}
+    display_hours = good_appts.map{|hora| "Start time: #{hora.begin_datetime.hour}.00 o'clock"}
     enumerate_options(display_hours)
     index = int_input(s = "\nPlease select an option:".yellow.bold, limits = [1, good_appts.size])
     hour = good_appts[index - 1].begin_datetime.hour 
