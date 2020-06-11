@@ -21,79 +21,34 @@ joe = Tutor.create(name: "Joe", subject: "Ways of the Samurai", years_of_experie
 joe_times = (8..20)
 
 shaq = Tutor.create(name: "Shaq", subject: "Balling", years_of_experience: 25)
-shaq_times = (12..17)
+shaq_times = (10..17)
 
+all_tutor_times = {vidhi => vidhi_times, sylwia => sylwia_times, alex => alex_times, joe => joe_times, shaq => shaq_times}
+
+def loop_helper(all_tutor_times, month, day)
+    for tutor, tutor_times in all_tutor_times
+        for hour in tutor_times
+            datetime = DateTime.new(DateTime.now.year, month, day, hour)
+            if datetime >= DateTime.now
+                Appointment.create(begin_datetime: datetime, tutor: tutor)
+            end
+        end
+    end
+end
 
 #creating appointments
 for month in (1..12)
     if month == 4 or month == 6 or month == 9 or month == 11
         for day in (1..30)
-            for hour in vidhi_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: vidhi)
-            end
-            for hour in sylwia_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: sylwia)
-            end
-            for hour in alex_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: alex)
-            end
-            for hour in joe_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: joe)
-            end
-            for hour in shaq_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: shaq)
-            end
+            loop_helper(all_tutor_times, month, day)
         end
     elsif month == 2
         for day in (1..28)
-            for hour in vidhi_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: vidhi)
-            end
-            for hour in sylwia_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: sylwia)
-            end
-            for hour in alex_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: alex)
-            end
-            for hour in joe_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: joe)
-            end
-            for hour in shaq_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: shaq)
-            end
+            loop_helper(all_tutor_times, month, day)
         end
     else
         for day in (1..31)
-            for hour in vidhi_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: vidhi)
-            end
-            for hour in sylwia_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: sylwia)
-            end
-            for hour in alex_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: alex)
-            end
-            for hour in joe_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: joe)
-            end
-            for hour in shaq_times
-                datetime = DateTime.new(DateTime.now.year, month, day, hour)
-                appointment = Appointment.create(begin_datetime: datetime, tutor: shaq)
-            end
+            loop_helper(all_tutor_times, month, day)
         end
     end
 end

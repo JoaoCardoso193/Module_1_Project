@@ -7,7 +7,7 @@ class Student < ActiveRecord::Base
     ## work hours defined, if outside that range, drop error. also drop error if appointment already taken
     def create_appointment(tutor, year, month, day, hour, note)
         datetime = DateTime.new(year, month, day, hour)
-        appointment = Appointment.find_by(begin_datetime: datetime)
+        appointment = Appointment.find_by(begin_datetime: datetime, tutor_id: tutor.id)
         if appointment.taken == false
             appointment.taken = true
             appointment.student_id = self.id
@@ -17,7 +17,7 @@ class Student < ActiveRecord::Base
             appointment.save
             appointment
         else
-            puts '\n Appointment taken, please select another time slot'
+            puts "\nAppointment taken, please select another time slot".red.bold
             return 'failed'
         end
     end
