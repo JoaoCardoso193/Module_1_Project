@@ -18,3 +18,5 @@ gem "rest-client", "~> 2.1"
 gem "date"
 
 gem "tty-prompt"
+
+gem "artii"
