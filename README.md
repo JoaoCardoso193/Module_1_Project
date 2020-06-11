@@ -6,7 +6,7 @@ This app is for students to view and schedule appointments with tutors.
 ## Table of contents
 - [Getting Started](#getting-started)
 - [Functionality](#functionality)
-- [Contributors](#contributing)
+- [Contributors](#contributors)
     
 
 ## Getting Started
