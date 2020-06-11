@@ -15,7 +15,7 @@ This app is for students to view and schedule appointments with tutors.
     - [Bootstrap](#bootstrap)
 - [Contributing](#contributing)
     - [Known Issues](#known-issues)
-- [License X](#license)
+- [License](#license-X)
 
 ## test
 For development, you will only need [Node.js](http://nodejs.org/) installed on your environement. 
