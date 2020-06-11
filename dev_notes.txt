@@ -45,8 +45,6 @@ None :)
 Add: If one tries to book an appointment on the weekend or outside the available times, it should specify "the tutors workhours are ..." or
 "even tutors need to take a break on weekends."
 
-Should also probably specify that it's 2020 we're referring to.
-
 
 -- To-Do / To Implement --
 
