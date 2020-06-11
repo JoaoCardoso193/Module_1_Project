@@ -1,50 +1,90 @@
-## Process
+# TutorX
 
-### Setup
-1. Create Gemfile + run `bundle`
-2. Create migrations: run `rake db:create_migration` and add the syntax you need (e.g. NAME=create_users)
-3. Migrate: run `rake db: migrate`
-* **REMEMBER** never ever ever change anything in schema.
-4. Go to `.bin/run.rb` and change the name of the app on line 3
-5. Go to `./app/models` and change the names of the files (e.g. `User.rb` <- singular) and the class names inside
-6. Set up associations in classes (`belongs_to` / `has_many` / `has_many through:`)
-7. Create seed data + run `rake db: seed`
-* remember: seeding does not give you any output so no news on your console == good news
-8. Check if you've seeded correctly: run `rake c` and check what's the last instance of any of your class 
-9. Go to `./app/yourAppName.rb` and change that file's name and whatever is inside (the class name should correspond to what you wrote in `.bin/run.rb` on line 3)
+This app is for students to view and schedule appointments with tutors.
 
-### Coding
-1. Create a dummy version of your logic -> hardcode it and don't yet make your code save anything to the database, just make sure that the logic works
-2. Test often by running the file or by `binding.pry`
-3. What I fould useful is drowing out every step I want to guide users through before coding - my whiteboard looked like this:
-![](Sunday.jpg)
-4. Then I coded the dummy version (without saving to the database, just to see if all "if"s are working and all that jazz)
-5. Then I added the database manipulations.
-6. Then I beautified the code and the app to make it visually pleasing
+***
+## Table of contents
+- [test](#getting-started)
+    - [Node Installation on OS X](#node-installation-on-os-x)
+    - [Node Installation on Linux](#node-installation-on-linux)
+    - [Node Installation on Windows](#node-installation-on-windows)
+- [Installation](#installation)
+- [Start and Watch](#start-and-watch)
+- [Languages and tools](#languages-and-tools)
+    - [React](#react)
+    - [Bootstrap](#bootstrap)
+- [Contributing](#contributing)
+    - [Known Issues](#known-issues)
+- [License](#license)
 
-## APIs
+## test
+For development, you will only need [Node.js](http://nodejs.org/) installed on your environement. 
 
-- [Dad Jokes API Docs](https://icanhazdadjoke.com/api)
-- [Sample API Request](https://icanhazdadjoke.com/api#fetch-a-random-dad-joke)
+#### Node installation on OS X
 
-- **[More APIs]**(https://rapidapi.com/collection/cool-apis)
-- [And even more APIs](https://medium.com/@vicbergquist/18-fun-apis-for-your-next-project-8008841c7be9)
+You will need to use a Terminal. On OS X, you can find the default terminal in
+`/Applications/Utilities/Terminal.app`.
 
-## Fun Gems For Your Projects
-- `faker` - randomly generated seed data fun
-- `colorize` - colored text output in your terminal
-- `lolcat` - enabling rainbow text coloring
-- `rest-client` - make HTTP requests and get data from APIs
-- `tty-prompt` - nice interface for prompting for user input
-- `formatador` - styling output information into a neat table
-- `artii` - creating text banners
+Please install [Homebrew](http://brew.sh/) if it's not already done with the following command.
 
-## Tutorials
-- [Using TTY Prompt by Brandon James](https://medium.com/@brandonj2858/benefits-of-using-tty-prompt-for-my-first-project-e5cfbc598a62)
-- [Adding animations to your CLI by Sylwia Vargas](https://medium.com/better-programming/add-an-animation-or-a-giph-to-your-ruby-cli-29952e8c46ea)
-- [Adding ASCII Art to your CLI by Sylwia Vargas](https://medium.com/@sylwiavargas/adding-pictures-to-your-ruby-cli-4252b89823a)
-- [Using Time/Date in your CLI by Joel Mendoza](https://medium.com/@joelmendza173/ruby-date-time-for-dummies-9f45518bab64)
-- [Resetting your database indexes by Sylwia Vargas]()
+    $ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
+If everything when fine, you should run
+
+    brew install node
+
+#### Node installation on Linux
+
+    sudo apt-get install python-software-properties
+    sudo add-apt-repository ppa:chris-lea/node.js
+    sudo apt-get update
+    sudo apt-get install nodejs
+
+#### Node installation on Windows
+
+Just go on [official Node.js website](http://nodejs.org/) & grab the installer.
+Also, be sure to have `git` available in your PATH, `npm` might need it.
 
 
+## Installation
+
+```
+    $ git clone https://github.com/sruti/covid19-riskfactors-app.git
+    $ cd covid19-riskfactors-app
+    $ npm install
+```
+
+## Start and Watch
+
+```
+    $ npm start
+```
+## Languages and Tools
+
+### React
+
+- [Create React App](https://github.com/facebook/create-react-app).
+
+### Bootstrap
+
+- [React-Bootstrap](https://react-bootstrap.github.io/)
+
+## Contributing
+Pull requests are welcome. Please make sure that your PR is [well-scoped](https://www.netlify.com/blog/2020/03/31/how-to-scope-down-prs/).
+For major changes, please open an issue first to discuss what you would like to change. 
+
+### Known issues
+Visit [issues](https://github.com/sruti/covid19-riskfactors-app/issues) section.
+
+### Contributors
+<table>
+  <tr>
+    <td align="center"><a href="http://sruti.me/"><img src="https://avatars1.githubusercontent.com/u/6357273?s=460&u=4f853d5ab1270d942ff0967fe23f9c50c7e2dfbb&v=4" width="200px;" alt=""/><br /><sub><b>Sruti Modekurty</b></sub></a><br /><a href="https://github.com/sruti/covid19-riskfactors-app/commits?author=sruti" title="Code">💻</a> <a href="#infra-sruti" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/sruti/covid19-riskfactors-app/issues/created_by/sruti" title="Bug reports">🐛</a><a href="#ideas-sruti" title="Ideas, Planning, & Feedback">💡</a></td>
+    <td></td>
+    <td align="center"><a href="https://github.com/sylwiavargas"><img src="https://avatars2.githubusercontent.com/u/45401242?s=460&u=2efe4366e8a6c7e8732daaaf8373250e7c8cfdd9&v=4" width="200px;" alt=""/><br /><sub><b>Sylwia Vargas</b></sub></a><br /><a href="https://github.com/sruti/covid19-riskfactors-app/commits?author=sylwiavargas" title="Code">💻</a> <a href="https://github.com/sruti/covid19-riskfactors-app/commits/master/README.md" title="Documentation">📖</a> <a href="https://github.com/sruti/covid19-riskfactors-app/issues/created_by/sylwiavargas" title="Bug reports">🐛</a><a href="#ideas-sylwia" title="Ideas, Planning, & Feedback">💡</a></td>
+    </tr>
+</table>
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
