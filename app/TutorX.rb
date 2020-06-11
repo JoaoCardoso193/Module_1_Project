@@ -111,8 +111,8 @@ class App < TTY::Prompt
     TextLogo.display
 
     #presents options to student 
-    enumerate_options(['Make an appointment', 'View upcoming appointments'])
-    user_input = int_input(s = "\nPlease select an option:".yellow.bold, limits = [1, 2])
+    enumerate_options(['Make an appointment', 'View upcoming appointments', 'Exit'])
+    user_input = int_input(s = "\nPlease select an option:".yellow.bold, limits = [1, 3])
     
     #Taking user to secondary menu depending on input
     if user_input == 1
@@ -120,6 +120,10 @@ class App < TTY::Prompt
     end
     if user_input == 2
       view_upcoming_appointments_menu
+    end
+    if user_input == 3
+      system 'clear'
+      exit
     end
     
   end
